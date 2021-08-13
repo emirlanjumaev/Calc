@@ -2,6 +2,7 @@ let ekranInput = document.querySelector('.input');
 let btn = document.querySelectorAll('td');
 
 
+
 // document.querySelector('.acc').addEventListener('click', function(onof){
 //     let ekranIn = ekranInput;
 
@@ -9,16 +10,35 @@ let btn = document.querySelectorAll('td');
 
 // })
 
+function onof(){
+    var ekranIn = ekranInput;
+
+    ekranIn.classList.remove('infocus')
+
+}
+
 
 btn.forEach(function(knopka){
-    knopka.addEventListener('click', function(kn){
-        let bttn = knopka.innerHTML;
-        let ek1 =  ekranInput;
-        let ekrann = ek1;
+    knopka.addEventListener('click', function(e){
+      var ekranIn = ekranInput;
+     var belgi = e.target.innerText
 
-        console.log(bttn)   
+        if(belgi == 'AC'){
+            ekranIn.value = '';
+        }
+        else if(belgi == '='){
+          ekranIn.value = (eval(ekranIn.value))
+        }
+        else{
+            ekranInput.value += belgi;
+        }
 
-        
-        ekrann.classList.add('infocus')
+
+     ekranIn.classList.add('infocus')
+     
+
+     
+
     })
 })
+
